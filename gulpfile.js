@@ -6,7 +6,7 @@ const { browsersync } = require('./tasks/browsersync');
 const tasks = requireDir('./tasks');
 
 //tasks.hello и tasks.browsersync это файлы с функциями и после идет название экспортируемой функции
-exports.start = tasks.hello;
+exports.start = tasks.start;
 exports.browsersync = tasks.browsersync;
 exports.pages = tasks.html;
 exports.watching = tasks.watch;
@@ -16,9 +16,8 @@ exports.reload = async () => {
 }
 
 exports.default = parallel(
-    exports.start,
+    series(exports.start, exports.start),
     exports.pages,
     exports.browsersync.browsersync,
-    exports.browsersync.reload,
     exports.watching,
 )

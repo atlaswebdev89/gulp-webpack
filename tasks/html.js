@@ -1,6 +1,5 @@
 // Определяем константы Gulp
 const { src, dest, parallel, series, watch } = require('gulp');
-const bs = require('browser-sync');
 const fileinclude = require ('gulp-file-include');
 
 module.exports = function pages() {
@@ -11,5 +10,4 @@ module.exports = function pages() {
                 })
             )
     .pipe(dest('./dist/'))
-    .pipe(bs.stream());
   }
