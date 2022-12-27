@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.scss"],"names":[],"mappings":"AAAA,C,CACI,Q,CACA,S,CACA,Y,CAGJ,K,CACI,c,CACA,iB","file":"index.min.css","sourcesContent":["* {\n    margin: 0;\n    padding: 0;\n    box-sizing: 0;\n}\n\n.test {\n    font-size: 20px;\n    font-style: italic;\n}"]}

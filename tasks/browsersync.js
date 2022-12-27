@@ -1,6 +1,6 @@
 // Подключаем Browsersync
 const browserSync = require('browser-sync').create();
-var gulp        = require("gulp");
+var gulp = require("gulp");
 // Определяем логику работы Browsersync
 function browsersync () {
     browserSync.init({ // Инициализация Browsersync
