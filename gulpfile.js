@@ -22,8 +22,8 @@ exports.start = tasks.start;
 exports.browsersync = tasks.browsersync;
 exports.pages = tasks.html;
 exports.watching = tasks.watch;
-exports.styles = tasks.styles;
-
+module.exports.styles = tasks.styles;
+exports.js = tasks.scripts.js;
 exports.clean = tasks.clean;
 
 exports.reload = async () => {
@@ -31,8 +31,9 @@ exports.reload = async () => {
 }
 
 exports.default = series(
-    parallel(exports.start, exports.pages,exports.styles),
-    parallel(exports.browsersync.browsersync, exports.watching)
+    parallel(exports.start, exports.pages, exports.styles),
+    exports.js,
+    parallel(exports.watching, exports.browsersync.browsersync)
 );
 
 exports.build = series (exports.clean);

@@ -7,7 +7,7 @@ const rename = require("gulp-rename");
 const sourcemaps = require('gulp-sourcemaps');
 
 const styles = async () => {
-    return src('./app/scss/pages/*.+(scss)')
+    return src('./app/scss/styles/*.+(scss)')
         .pipe(sourcemaps.init()) // инициализируем создание Source Maps
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({ grid: true }))
