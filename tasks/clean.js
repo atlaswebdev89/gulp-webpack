@@ -1,5 +1,5 @@
-const del = require('del');
+const del = require("del");
 async function clean() {
-    del.sync('./dist/', { force: true });
+  del.sync("./dist/*", { force: true });
 }
 module.exports = clean;
