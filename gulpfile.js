@@ -4,6 +4,8 @@ const { src, dest, parallel, series, watch } = require("gulp");
 const requireDir = require("require-dir");
 const tasks = requireDir("./tasks");
 
+const mode = process.env.MODE;
+
 //tasks.hello и tasks.browsersync это файлы с функциями и после идет название экспортируемой функции
 exports.start = tasks.start;
 exports.browsersync = tasks.browsersync;
@@ -23,6 +25,7 @@ exports.productionStart = tasks.startBuildProd;
 
 // Сборка для developer
 exports.default = series(
+  exports.clean,
   parallel(
     exports.start,
     exports.pages,
@@ -37,10 +40,10 @@ exports.default = series(
 
 // Сборка для продакшена
 exports.build = series(
-  exports.productionStart,
+  exports.start,
   exports.clean,
   exports.pages,
-  exports.productionStyles,
+  exports.styles,
   exports.fontsConvert,
   parallel(exports.fonts, exports.images, exports.js)
 );
