@@ -15,5 +15,9 @@
     "parserOptions": {
         "ecmaVersion": "latest"
     },
-    "rules": { "prettier/prettier": "error", "max-len": "off" }
+    "rules": {
+        "prettier/prettier": "error",
+        "max-len": "off",
+        "no-console": "off"
+    }
 }
