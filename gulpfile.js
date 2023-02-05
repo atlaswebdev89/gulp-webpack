@@ -13,8 +13,12 @@ exports.browsersync = tasks.browsersync
 exports.pages = tasks.html
 exports.watching = tasks.watch
 module.exports.styles = tasks.styles
+// Для обработки модулей js
 exports.js = tasks.scripts.js
+// Для обработки отдельных файлов js Конкатенация в один файл сжатие и переименнование
+exports.jscore = tasks.scripts.corejs
 exports.clean = tasks.clean
+
 exports.fonts = tasks.fonts.fonts
 exports.fontsConvert = tasks.fonts.fontsConvert
 exports.images = tasks.images
@@ -36,6 +40,7 @@ exports.default = series(
         exports.images
     ),
     exports.js,
+    exports.jscore,
     parallel(exports.watching, exports.browsersync)
 )
 
@@ -46,5 +51,6 @@ exports.build = series(
     exports.pages,
     exports.styles,
     exports.fontsConvert,
-    parallel(exports.fonts, exports.images, exports.js)
+    parallel(exports.fonts, exports.images, exports.js),
+    exports.jscore
 )
