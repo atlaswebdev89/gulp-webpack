@@ -1,4 +1,4 @@
-const { src, dest, watch, parallel, series } = require('gulp')
+const { src, dest } = require('gulp')
 const webpack = require('webpack')
 const webpackStream = require('webpack-stream')
 const plumber = require('gulp-plumber')
@@ -6,7 +6,7 @@ const uglify = require('gulp-uglify')
 const rename = require('gulp-rename')
 const order = require('gulp-order')
 const concat = require('gulp-concat')
-const webpackConfig = require('./webpack.config.js')
+const webpackConfig = require('./webpack.config')
 
 exports.js = async function js() {
     return src('./app/js/scripts/app.js')

@@ -18,6 +18,14 @@
     "rules": {
         "prettier/prettier": "error",
         "max-len": "off",
-        "no-console": "off"
+        "no-console": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true,
+                "optionalDependencies": false,
+                "peerDependencies": false
+            }
+        ]
     }
 }
