@@ -22,10 +22,11 @@ exports.corejs = async function corejs() {
         .pipe(
             order([
                 'jquery-3.2.1.min.js',
-                'animsition.js',
-                'popper.js',
-                'bootstrap.js',
-                'lightgallery.min.js',
+                'popper.min.js',
+                'bootstrap.min.js',
+                'owl.carousel.min.js',
+                'jquery.waypoints.min.js',
+                'main.js',
             ])
         ) // Порядок добавления файлов в общий файл
         .pipe(concat('core.js')) // объеденим все js-файлы в один

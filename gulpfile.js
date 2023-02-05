@@ -12,7 +12,10 @@ exports.start = tasks.start
 exports.browsersync = tasks.browsersync
 exports.pages = tasks.html
 exports.watching = tasks.watch
-module.exports.styles = tasks.styles
+// Для scss своих
+module.exports.styles = tasks.styles.styles
+// Для css и scss из папки resourses
+module.exports.stylescore = tasks.styles.stylescore
 // Для обработки модулей js
 exports.js = tasks.scripts.js
 // Для обработки отдельных файлов js Конкатенация в один файл сжатие и переименнование
@@ -35,6 +38,7 @@ exports.default = series(
         exports.start,
         exports.pages,
         exports.styles,
+        exports.stylescore,
         exports.fontsConvert,
         exports.fonts,
         exports.images
@@ -50,6 +54,7 @@ exports.build = series(
     exports.clean,
     exports.pages,
     exports.styles,
+    exports.stylescore,
     exports.fontsConvert,
     parallel(exports.fonts, exports.images, exports.js),
     exports.jscore
